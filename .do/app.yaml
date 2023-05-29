@@ -1,6 +1,6 @@
-name: sample-flask
+name: clockwerx-app
 services:
 - name: web
   github:
-    repo: digitalocean/sample-flask
+    repo: oddeo/clockwerx-app
     branch: main
