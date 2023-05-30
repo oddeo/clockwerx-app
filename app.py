@@ -11,11 +11,6 @@ from blocklist import BLOCKLIST
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello_world():
-    return render_template("index.html")
-
-
 app.config["PROPAGATE_EXCEPTIONS"] = True
 app.config["API_TITLE"] = "Rolls REST API"
 app.config["API_VERSION"] = "v1"
@@ -87,3 +82,8 @@ def missing_token_callback(error):
         jsonify({"message": "request does not contain an access token", "error": "authorization_required"}),
         401,
     )
+
+
+@app.route("/")
+def hello_world():
+    return render_template("index.html")
