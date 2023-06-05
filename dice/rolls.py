@@ -1,4 +1,4 @@
-from characters.builder.character import Character
+from characters.character import Character
 from random import randint
 
 

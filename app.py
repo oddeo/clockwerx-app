@@ -5,7 +5,8 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from endpoints.rolls_api import blp as roll_blueprint
 from endpoints.auth_api import blp as auth_blueprint
-from characters.builder.character import Character
+from endpoints.encounters_api import blp as encounters_blueprint
+from characters.character import Character
 from blocklist import BLOCKLIST
 
 app = Flask(__name__)
@@ -23,6 +24,7 @@ flask_api = Api(app)
 
 flask_api.register_blueprint(roll_blueprint)
 flask_api.register_blueprint(auth_blueprint)
+flask_api.register_blueprint(encounters_blueprint)
 
 config = dotenv_values(".env")
 app.config["JWT_SECRET_KEY"] = config['FLASK_SECRET']

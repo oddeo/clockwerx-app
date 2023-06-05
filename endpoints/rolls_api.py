@@ -3,7 +3,7 @@ from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from schemas import RollSchema
 from dice.rolls import ability_roll, skill_roll, initiative_roll, perception_roll
-from characters.builder.character import Character
+from characters.character import Character
 
 
 blp = Blueprint("rolls", __name__, description="Dice roll operations")

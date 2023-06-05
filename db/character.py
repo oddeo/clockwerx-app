@@ -6,7 +6,7 @@ from db.connectors.mongoconnect import MongoDb
 class Db(DbApi):
 
     @classmethod
-    def save_character(cls, character, connection=MongoDb):
+    def save(cls, character, connection=MongoDb):
         db = connection.connect()
         characters = db.characters
         # replace this with an upsert to handle create and update
@@ -17,7 +17,7 @@ class Db(DbApi):
         return saved_character['character_id']
 
     @classmethod
-    def retrieve_character(cls, character_id, connection=MongoDb):
+    def retrieve(cls, character_id, connection=MongoDb):
         db = connection.connect()
         characters = db.characters
         character = characters.find_one({"character_id": character_id})
@@ -53,19 +53,10 @@ class Db(DbApi):
         return result
 
     @classmethod
-    def remove_character(cls, character_id, connection=MongoDb):
+    def remove(cls, character_id, connection=MongoDb):
         db = connection.connect()
         characters = db.characters
         result = characters.delete_one({"character_id": character_id})
 
         return result.deleted_count
 
-
-class DatabaseException(Exception):
-    """Exception raised when there is an issue with the db"""
-    def __init__(self, error):
-        self.message = "Database Error"
-        self.error = error
-
-    def __str__(self):
-        return str(f'{self.message}: {self.error}')

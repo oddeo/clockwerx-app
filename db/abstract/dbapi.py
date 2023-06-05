@@ -7,28 +7,16 @@ class DbApi(ABC):
 
     @classmethod
     @abstractmethod
-    def save_character(cls, character, connection: DbConnection) -> str:
-        """
-        Save changes to character or create new if one does not exist w same id
-        return str: character_id
-        """
+    def save(cls, item, connection: DbConnection) -> str:
         pass
 
     @classmethod
     @abstractmethod
-    def retrieve_character(cls, character_id: str, connection: DbConnection) -> dict:
-        """
-        Retrieve a dictionary repr of character by str character_id
-        return dict: character | {"character_id": character_id,"database_result": "record_not_found"}
-        """
+    def retrieve(cls, item_id: str, connection: DbConnection) -> dict:
         pass
 
     @classmethod
     @abstractmethod
-    def remove_character(cls, character_id: str, connection: DbConnection) -> int:
-        """
-        Delete a character by str character_id
-        return int: deleted count
-        """
+    def remove(cls, item_id: str, connection: DbConnection) -> int:
         pass
 

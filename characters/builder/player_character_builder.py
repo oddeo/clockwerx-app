@@ -1,5 +1,5 @@
 from characters.abstract.icharacterbuilder import ICharacterBuilder
-from characters.builder.character import Character
+from characters.character import Character
 from characters.builder.character_types import Characters
 
 from characters.abstract.strategy import Strategy

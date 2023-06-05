@@ -8,5 +8,11 @@ class RollSchema(Schema):
     result = fields.Dict(dump_only=True)
 
 
+class EncounterSchema(Schema):
+    encounter_id = fields.Str(required=True)
+    participants = fields.List(fields.Dict())
+    result = fields.Dict(dump_only=True)
+
+
 class AuthSchema(Schema):
     character_id = fields.Str(required=True)

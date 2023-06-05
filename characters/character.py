@@ -1,5 +1,5 @@
 import jsonpickle
-from characters.builder.repo.character_repo import save_character, retrieve_character, remove_character, \
+from characters.repo.character_repo import save_character, retrieve_character, remove_character, \
     retrieve_by_discord_display_name
 from characters.builder.character_types import Characters
 from characters.builder.proficiency_types import Proficiencies
@@ -22,7 +22,7 @@ from characters.equipment.armor.categories import ArmorCategory
 from characters.equipment.weapons.categories import WeaponsCategory
 from characters.equipment.weapons.types import Weapons
 from characters.saving_throws.types import SavingThrows
-from characters.builder.utils.utils import generate_id
+from utils.ids import generate_id
 
 
 class Character:

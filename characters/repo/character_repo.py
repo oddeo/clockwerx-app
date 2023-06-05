@@ -1,8 +1,9 @@
-from db.data import Db, DatabaseException
+from db.character import Db
+from db.exception import DatabaseException
 
 
 def save_character(character):
-    character_db_id = Db.save_character(character)
+    character_db_id = Db.save(character)
     if character_db_id is None:
         raise DatabaseException("Nothing returned from db on save.")
 
@@ -10,7 +11,7 @@ def save_character(character):
 
 
 def retrieve_character(character_id):
-    character = Db.retrieve_character(character_id)
+    character = Db.retrieve(character_id)
     return character
 
 
@@ -20,5 +21,5 @@ def retrieve_by_discord_display_name(discord_display_name):
 
 
 def remove_character(character_id):
-    character = Db.remove_character(character_id)
+    character = Db.remove(character_id)
     return character
