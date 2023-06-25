@@ -2,7 +2,7 @@ from flask_jwt_extended import jwt_required, get_jwt
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from schemas import RollSchema
-from dice.rolls import ability_roll, skill_roll, initiative_roll, perception_roll
+from dice.rolls import ability_roll, skill_roll, initiative_roll, perception_roll, open_roll
 from characters.character import Character
 
 
@@ -25,7 +25,8 @@ class Dice(MethodView):
                 "ability": ability_roll,
                 "skill": skill_roll,
                 "initiative": initiative_roll,
-                "perception": perception_roll
+                "perception": perception_roll,
+                "open": open_roll
             }
 
             player = Character.retrieve(character_id)
