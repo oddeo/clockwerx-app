@@ -64,11 +64,11 @@ def perception_roll(player, attribute="perception"):
         return {"value": 0, "score": 0, "roll": 0, "error": True}
 
 
-def open_roll(player, sides, count=1):
+def open_roll(player, sides):
 
     try:
-        Character.cast(player) # not used yet
-        score = randint(1, sides) * count
+        Character.cast(player)  # not used yet
+        score = randint(1, int(sides))
         return {"value": score, "score": score, "roll": score, "error": False}
 
     except Exception as e:
