@@ -59,7 +59,7 @@ class DiceNoAttributes(MethodView):
             jwt = get_jwt()
             if jwt.get("is_admin"):
                 # example for future functions that require admin rights
-                print("user is an admin")
+                pass
 
             roll_map = {
                 "perception": PerceptionRoll,
